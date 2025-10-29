@@ -1,0 +1,106 @@
+# AI Documentation Generator Configuration
+# Copy this file to config.yaml and customize as needed
+
+# Ollama Configuration
+ollama:
+  base_url: "http://localhost:11434"
+  model: "llama3.2"  # Options: llama3.2, codellama, mistral, etc.
+  temperature: 0.3
+  timeout: 120
+
+# Documentation Style
+documentation:
+  style: "professional"  # Options: professional, casual, technical, minimal
+  tone: "clear"  # Options: clear, friendly, formal, concise
+  verbosity: "detailed"  # Options: minimal, balanced, detailed, comprehensive
+  include_emojis: true
+  include_badges: true
+  include_table_of_contents: true
+
+# Project Scanning
+scanning:
+  max_file_size_mb: 5  # Skip files larger than this
+  max_depth: 10  # Maximum directory depth to scan
+  follow_symlinks: false
+  
+  # Patterns to ignore (in addition to .gitignore)
+  ignore_patterns:
+    - "*.log"
+    - "*.tmp"
+    - "*.cache"
+    - ".git/"
+    - ".svn/"
+    - "node_modules/"
+    - "__pycache__/"
+    - "venv/"
+    - ".venv/"
+    - "dist/"
+    - "build/"
+    - "target/"
+    - ".next/"
+    - ".nuxt/"
+    - "coverage/"
+    - ".pytest_cache/"
+  
+  # File extensions to analyze for code
+  code_extensions:
+    - ".py"
+    - ".js"
+    - ".ts"
+    - ".jsx"
+    - ".tsx"
+    - ".java"
+    - ".cpp"
+    - ".c"
+    - ".h"
+    - ".hpp"
+    - ".cs"
+    - ".go"
+    - ".rs"
+    - ".rb"
+    - ".php"
+    - ".swift"
+    - ".kt"
+    - ".scala"
+    - ".sh"
+    - ".bash"
+    - ".sql"
+
+# Output Configuration
+output:
+  docs_directory: "docs"
+  create_readme: true
+  create_api_docs: true
+  create_architecture_docs: true
+  create_contributing: true
+  create_changelog: false
+  overwrite_existing: false  # Prompt before overwriting
+
+# Language Detection
+languages:
+  auto_detect: true
+  # Override detection for specific directories
+  overrides: {}
+    # "src/frontend": "javascript"
+    # "src/backend": "python"
+
+# Advanced Options
+advanced:
+  chunk_size: 4000  # Characters per code chunk for analysis
+  max_concurrent_requests: 3  # Parallel requests to Ollama
+  retry_attempts: 3
+  enable_caching: true
+  cache_ttl_hours: 24
+  log_level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  
+  # New Advanced Features
+  generate_summary: true  # Generate AI summary (SUMMARY.md)
+  analyze_dependencies: true  # Parse requirements.txt, package.json, .env
+  analyze_code_structure: true  # Deep code analysis with relationships
+  enable_markdown_enhancements: true  # Add collapsible sections, TOC
+  enable_seo_optimization: true  # Add SEO metadata and keywords
+
+# Notification Settings
+notifications:
+  enable_sound: true  # Play terminal bell on completion
+  enable_completion_message: true  # Show colored completion summary

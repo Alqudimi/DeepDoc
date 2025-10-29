@@ -1,0 +1,33 @@
+[project]
+name = "deepdoc"
+version = "1.0.0"
+description = "Local AI documentation generator using Ollama, LangChain, and LangGraph"
+requires-python = ">=3.11"
+dependencies = [
+    "gitignore-parser>=0.1.13",
+    "langchain>=1.0.2",
+    "langchain-community>=0.4.1",
+    "langchain-ollama>=1.0.0",
+    "langgraph>=1.0.2",
+    "pathspec>=0.12.1",
+    "pyyaml>=6.0.3",
+    "rich>=14.2.0",
+    "requests>=2.32.0",
+    "fastapi>=0.120.2",
+    "uvicorn[standard]>=0.38.0",
+    "python-multipart>=0.0.20",
+    "aiofiles>=25.1.0",
+    "pytest-asyncio>=1.2.0",
+    "httpx>=0.28.1",
+    "pytest>=8.4.2",
+]
+
+[project.scripts]
+docgen = "src.docgen.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/docgen"]
